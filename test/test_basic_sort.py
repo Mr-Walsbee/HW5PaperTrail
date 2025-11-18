@@ -32,7 +32,7 @@ def int_lists():
     # fixture which creates testing data for all tests
 
     return [[3, 2, 1], [1, 1, 1], np.random.randint(low=-10, high=200, size=5)]
-    
+
 
 def test_bubble(int_lists):
     assert True
