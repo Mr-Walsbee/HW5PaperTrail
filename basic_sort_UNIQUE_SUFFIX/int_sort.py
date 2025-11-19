@@ -26,7 +26,6 @@ def bubble(int_list):
 
     @param1 int_list: list of integers to sort
     @return sorted: list of integers
-    
     """
     n = len(int_list)
     for i in range(n):
