@@ -1,3 +1,4 @@
+
 # =========================================================================
 #
 #  Copyright Ziv Yaniv
@@ -17,26 +18,58 @@
 # =========================================================================
 
 """
-This module sorts lists of integers...
+This module contains three sorting algorithms: bubble sort, quick sort, and insertion sort.
 """
 
-
 def bubble(int_list):
+    """Returns a sorted list using the bubble sort algorithm.
+
+    @param1 int_list: list of integers to sort
+    @return sorted: list of integers
+    
     """
-    bubble docstring
-    """
-    print("bubble sort")
+    n = len(int_list)
+    for i in range(n):
+        swapped = False
+        for j in range(0, n - i - 1):
+            if int_list[j] > int_list[j + 1]:
+                int_list[j], int_list[j + 1] = int_list[j + 1], int_list[j]
+                swapped = True
+        if not swapped:
+            break
+    return int_list
 
 
+# Quick Sort
 def quick(int_list):
-    """
-    qsort docstring
-    """
-    print("quick sort")
+    """Returns a sorted list using the quick sort algorithm.
 
+    @param1 int_list: list of integers to sort
+    @return sorted: list of integers
+    """
+    if len(int_list) <= 1:
+        return int_list
 
+    pivot = int_list[len(int_list) // 2]
+    left = [x for x in int_list if x < pivot]
+    mid  = [x for x in int_list if x == pivot]
+    right = [x for x in int_list if x > pivot]
+
+    return quick(left) + mid + quick(right)
+
+# Insertion Sort
 def insertion(int_list):
+    """Returns a sorted list using the insertion sort algorithm.
+
+    @param1 int_list: list of integers to sort
+    @return sorted: list of integers
     """
-    insertion docstring
-    """
-    print("insertion sort")
+    for i in range(1, len(int_list)):
+            key = int_list[i]
+            j = i - 1
+            while j >= 0 and key < int_list[j]:
+                int_list[j + 1] = int_list[j]
+                j -= 1
+            int_list[j + 1] = key
+
+    return int_list
