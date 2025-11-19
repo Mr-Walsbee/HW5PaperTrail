@@ -1,4 +1,3 @@
-
 # =========================================================================
 #
 #  Copyright Ziv Yaniv
@@ -20,6 +19,7 @@
 """
 This module contains three sorting algorithms: bubble sort, quick sort, and insertion sort.
 """
+
 
 def bubble(int_list):
     """Returns a sorted list using the bubble sort algorithm.
@@ -52,10 +52,11 @@ def quick(int_list):
 
     pivot = int_list[len(int_list) // 2]
     left = [x for x in int_list if x < pivot]
-    mid  = [x for x in int_list if x == pivot]
+    mid = [x for x in int_list if x == pivot]
     right = [x for x in int_list if x > pivot]
 
     return quick(left) + mid + quick(right)
+
 
 # Insertion Sort
 def insertion(int_list):
@@ -65,11 +66,11 @@ def insertion(int_list):
     @return sorted: list of integers
     """
     for i in range(1, len(int_list)):
-            key = int_list[i]
-            j = i - 1
-            while j >= 0 and key < int_list[j]:
-                int_list[j + 1] = int_list[j]
-                j -= 1
-            int_list[j + 1] = key
+        key = int_list[i]
+        j = i - 1
+        while j >= 0 and key < int_list[j]:
+            int_list[j + 1] = int_list[j]
+            j -= 1
+        int_list[j + 1] = key
 
     return int_list
