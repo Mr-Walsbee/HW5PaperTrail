@@ -20,6 +20,9 @@
 This module contains three sorting algorithms: bubble sort, quick sort, and insertion sort.
 """
 
+import time
+import psutil
+
 
 def bubble(int_list):
     """Returns a sorted list using the bubble sort algorithm.
@@ -36,6 +39,8 @@ def bubble(int_list):
                 swapped = True
         if not swapped:
             break
+        print("Bubble Sort - CPU Usage:", psutil.cpu_percent())     #print CPU usage 
+        time.sleep(0.5)         #delay execution by 0.5 seconds
     return int_list
 
 
@@ -46,6 +51,7 @@ def quick(int_list):
     @param1 int_list: list of integers to sort
     @return sorted: list of integers
     """
+    start = time.time()         #get start time of program
     if len(int_list) <= 1:
         return int_list
 
@@ -54,6 +60,8 @@ def quick(int_list):
     mid = [x for x in int_list if x == pivot]
     right = [x for x in int_list if x > pivot]
 
+    end = time.time()           #get end time of program
+    print("Quick Sort - Runtime:", end - start)     #print difference of end and start times
     return quick(left) + mid + quick(right)
 
 
@@ -71,5 +79,5 @@ def insertion(int_list):
             int_list[j + 1] = int_list[j]
             j -= 1
         int_list[j + 1] = key
-
+    print("Insertion Sort - Memory Usage:", psutil.virtual_memory().percent)    #print memory usage of after code is complete
     return int_list
