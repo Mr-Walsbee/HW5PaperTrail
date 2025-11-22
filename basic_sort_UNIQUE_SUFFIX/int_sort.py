@@ -85,3 +85,9 @@ def insertion(int_list):
         "Insertion Sort - Memory Usage:", psutil.virtual_memory().percent
     )  # print memory usage of after code is complete
     return int_list
+
+
+list = [1, 5, 3, 2, 4]
+bubble(list)
+quick(list)
+insertion(list)
